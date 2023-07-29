@@ -1,5 +1,4 @@
-const turnOn = document.getElementById ("turnOn");
-const turnOff = document.getElementById ("turnOff");
+const turnOnOff = document.getElementById ("turnOnOff");
 const lamp = document.getElementById ("lamp")
 function stop (){
     return lamp.src.indexOf ('animacao') > -1
@@ -20,8 +19,19 @@ function anima() {
 
 }
 
-turnOn.addEventListener ( 'click' , lampOn );
-turnOff.addEventListener ('click' , lampOff);
+function lampOnOff(){
+    if(turnOnOff.textContent == 'Ligar'){
+        lampOn()
+        turnOnOff.textContent = 'Desligar'
+    } else {
+        lampOff()
+        turnOnOff.textContent = 'Ligar'
+    }
+}
+
+turnOnOff.addEventListener ( 'click' , lampOnOff );
+
+
 lamp.addEventListener('mouseover', lampOn );
 lamp.addEventListener('mouseout', lampOff);
 lamp.addEventListener('dblclick', anima);
